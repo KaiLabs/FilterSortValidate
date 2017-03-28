@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dish: MyString
+  description: MyText
+  length: 1
+  ingredients: MyText
+
+two:
+  dish: MyString
+  description: MyText
+  length: 1
+  ingredients: MyText

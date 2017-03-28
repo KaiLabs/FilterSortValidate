@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Recipes</h1>
+
+<!- Sorting ->
+<div>
+  Sort By:
+  <%= link_to 'Dish Name', recipes_path(:sorting => 'dish')%>
+  <%= link_to 'Description', recipes_path(:sorting => 'description')%>
+  <%= link_to 'Cooking Time', recipes_path(:sorting => 'length')%>
+  <%= link_to 'Ingredients', recipes_path(:sorting => 'ingredients')%>
+  </br>
+  <%= link_to 'Clear sorting', recipes_path(:sorting => nil)%>
+</div>
+
+</br>
+
+<!- Filtering ->
+<div>
+  <%= form_tag(recipes_path, :method => "get") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+  <%= submit_tag "Search"%>
+<% end %>
+  <%= link_to 'Clear Search', recipes_path(:search => nil)%>
+</div>
+
+<% if @recipes.blank? %>
+<!- This happens if filter filters out everything->
+  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Dish</th>
+        <th>Description</th>
+        <th>Length</th>
+        <th>Ingredients</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @recipes.each do |recipe| %>
+        <tr>
+          <td><%= recipe.dish %></td>
+          <td><%= recipe.description %></td>
+          <td><%= recipe.length %></td>
+          <td><%= recipe.ingredients %></td>
+          <td><%= link_to 'Show', recipe %></td>
+          <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+          <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<br>
+
+<%= link_to 'New Recipe', new_recipe_path %>

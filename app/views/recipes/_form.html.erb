@@ -1,0 +1,38 @@
+<%= form_for(recipe) do |f| %>
+  <% if recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :dish %>
+    <!- :required true makes that fieled requried, implemented with warning already ->
+    <%= f.text_field :dish, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :length %>
+    <%= f.number_field :length, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ingredients %>
+    <%= f.text_area :ingredients, :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
