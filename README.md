@@ -1,24 +1,26 @@
-# README
+# How to Filter, Sort, and Validate in Ruby on Rails #
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description ##
+This sample project has a bare bone example of filtering, sorting, validating on Rails.
 
-Things you may want to cover:
+Note: This is not the only way to do it, and is a very simple implementation. Code has not been refactored as of now.
 
-* Ruby version
+## Getting this running on your device ##
+**Assumes that you are using mac and ruby/ruby on rails setup on device already**
 
-* System dependencies
+- Download/Clone repo onto your device
+- Via terminal/command line, get to parent directory
+- Run command 'rake db:migrate' to setup database
+- Run command 'rake db:seed' to fill in the database
+- Run 'rails server' to run the application and go to 'localhost:3000' on your browser
 
-* Configuration
 
-* Database creation
+## Guide ##
+### Filtering ###
 
-* Database initialization
 
-* How to run the test suite
+### Sorting ###
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+### Validation ###
 
-* ...
