@@ -4,13 +4,17 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
 
+    ###    FILTERING   ###
     # Check the filtering keyworkd and calls helper function in model
     if params[:search]
+      # The helper function defined in the model is used here
       @recipes = Recipe.search(params[:search])
     end
 
+    ###    SORTING   ###
     # Sorts all recipes based on the selected sorting column
     if params[:sorting] == 'dish'
+      #SQL syntax is used here, replace ASC with DESC if you want reverse order 
       @recipes = @recipes.order('recipes.dish ASC')
 
     elsif params[:sorting] == 'description'

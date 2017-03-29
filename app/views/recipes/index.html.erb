@@ -5,13 +5,17 @@
 <!- Sorting ->
 <div>
   Sort By:
+  <!- Sets params[:sorting] according which button is clicked ->
   <%= link_to 'Dish Name', recipes_path(:sorting => 'dish')%>
   <%= link_to 'Description', recipes_path(:sorting => 'description')%>
   <%= link_to 'Cooking Time', recipes_path(:sorting => 'length')%>
   <%= link_to 'Ingredients', recipes_path(:sorting => 'ingredients')%>
   </br>
+  <!- Button to clear params[:sorting] ->
   <%= link_to 'Clear sorting', recipes_path(:sorting => nil)%>
 </div>
+
+<!- end of sorting ->
 
 </br>
 
@@ -27,6 +31,9 @@
 <% if @recipes.blank? %>
 <!- This happens if filter filters out everything->
   <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+<!- end of filtering ->
+
+
 <% else %>
   <table>
     <thead>
